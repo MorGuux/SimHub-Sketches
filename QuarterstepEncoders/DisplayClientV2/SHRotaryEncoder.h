@@ -66,7 +66,7 @@ private:
 
 	int counter = 0;
 	bool halfSteps = false;
-  bool quarterSteps = false;
+	bool quarterSteps = false;
 
 	uint8_t inputLastState;
 	uint8_t buttonState;
@@ -85,7 +85,7 @@ public:
 
 	void begin(uint8_t outputAPin, uint8_t outputBPin, int buttonPin, bool reverse, bool enablePullup, byte encoderid, int steps,  SHRotaryEncoderPositionChanged changedcallback) {
 		halfSteps = steps == 1;
-    quarterSteps = steps == 2;
+		quarterSteps = steps == 2;
 		buttonDebouncer.begin(50);
 		outputA.begin((!reverse) ? outputAPin : outputBPin);
 		outputB.begin((!reverse) ? outputBPin : outputAPin);
@@ -116,11 +116,11 @@ public:
 	}
 
 	void read() {
-    uint8_t value = (outputB.digitalRead() << 1) | outputA.digitalRead();
-    if (quarterSteps) {
-      direction = quarterStepsTable[inputLastState][value];
-      inputLastState = value;
-    }
+		uint8_t value = (outputB.digitalRead() << 1) | outputA.digitalRead();
+		if (quarterSteps) {
+			direction = quarterStepsTable[inputLastState][value];
+			inputLastState = value;
+		}
 		else if (halfSteps)
 			inputLastState = halfStepsTable[inputLastState & 0xf][value];
 		else {
@@ -128,7 +128,7 @@ public:
 		}
 
 		if (!quarterSteps)
-      direction = (inputLastState & 0x30);
+			direction = (inputLastState & 0x30);
 
 		if (direction == DIR_CCW) {
 			counter++;
