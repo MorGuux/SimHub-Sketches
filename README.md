@@ -1,5 +1,8 @@
 # SimHub-Sketches
 
+## Extended sketch
+#### Merges all added features that are in separated sketches into a single master sketch. Highly advise using this for maximum compatibility
+
 ## PaddleClutch sketch
 #### Adds dual-clutch support to the SimHub arduino sketch (powered by [PaddleClutch](https://github.com/MorGuux/PaddleClutch))
 
